@@ -1,0 +1,7 @@
+{
+  "name": "ionic-notepad",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
