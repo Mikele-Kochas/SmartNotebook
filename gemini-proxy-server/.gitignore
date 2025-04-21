@@ -1,0 +1,22 @@
+    # Zależności
+    node_modules/
+
+    # Zmienne środowiskowe
+    .env
+    gemini-proxy-server/.env 
+
+    # Wyniki kompilacji
+    dist/
+    www/
+    gemini-proxy-server/dist/
+
+    # Pliki systemowe i edytora
+    .DS_Store
+    Thumbs.db
+    *.log
+    .idea/
+    .vscode/
+
+    # Pliki platform natywnych (zazwyczaj nie wysyła się ich)
+    android/
+    ios/

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="violet-gradient">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isNewNote ? 'Nowa Notatka' : 'Edytuj Notatkę' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentRevisionOptions()" [disabled]="!note.content">
+        <ion-icon slot="icon-only" name="sparkles-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="saveNote()" [disabled]="!note.title && !note.content">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!isNewNote" (click)="deleteNote()" color="danger">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="note-form">
+    <ion-item class="title-input">
+      <ion-input
+        label="Tytuł"
+        labelPlacement="floating"
+        [(ngModel)]="note.title"
+        placeholder="Wpisz tytuł notatki"
+        class="custom-input"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="content-input">
+      <ion-textarea
+        label="Treść"
+        labelPlacement="floating"
+        [(ngModel)]="note.content"
+        placeholder="Wpisz treść notatki"
+        autoGrow="true"
+        rows="12"
+        class="custom-input"
+      ></ion-textarea>
+    </ion-item>
+  </div>
+</ion-content>

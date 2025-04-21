@@ -1,0 +1,59 @@
+.note-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title-input,
+.content-input {
+  --background: var(--ion-item-background);
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 16px;
+  --border-color: transparent;
+  --highlight-color: var(--ion-color-input-highlight);
+  --highlight-height: 2px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-input {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-size: 16px;
+  --highlight-color: var(--ion-color-input-highlight);
+  
+  &::part(native) {
+    padding: 0;
+  }
+}
+
+ion-textarea.custom-input {
+  --padding-top: 8px;
+  min-height: 200px;
+  
+  &::part(native) {
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+}
+
+ion-button {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+// Animacja przycisków
+ion-button:not([disabled]) {
+  transition: transform 0.2s ease;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}

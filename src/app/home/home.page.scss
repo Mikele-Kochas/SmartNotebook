@@ -25,3 +25,135 @@
 #container a {
   text-decoration: none;
 }
+
+.note-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  --background: var(--ion-item-background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --inner-padding-end: 0;
+
+  ion-button[slot="end"] {
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 36px;
+    --padding-start: 6px;
+    --padding-end: 6px;
+  }
+
+  ion-checkbox {
+    margin-right: 12px;
+  }
+}
+
+.note-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ion-text-color);
+  margin-bottom: 8px;
+}
+
+.note-preview {
+  font-size: 14px;
+  color: var(--ion-text-color);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.note-empty {
+  font-size: 14px;
+  color: var(--ion-text-color);
+  opacity: 0.5;
+  font-style: italic;
+  margin: 0;
+}
+
+.empty-state {
+  padding: 48px 20px;
+  
+  .empty-state-icon {
+    font-size: 64px;
+    color: var(--ion-color-primary);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ion-text-color);
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--ion-text-color);
+    opacity: 0.7;
+    margin: 0;
+  }
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item-sliding {
+  background: transparent;
+  margin-bottom: 8px;
+}
+
+ion-fab-button {
+  --background: var(--violet-gradient);
+  --color: white;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --border-radius: 50%;
+}
+
+// Styles for FAB buttons
+ion-fab[horizontal="end"] ion-fab-button {
+  --background: var(--violet-gradient);
+  --color: white;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --border-radius: 50%;
+}
+
+ion-fab[horizontal="start"] ion-fab-button {
+  --color: white;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --border-radius: 50%;
+
+  // Apply gradient to the inner button part when color is primary
+  &[color="primary"]::part(native) {
+    background: var(--violet-gradient);
+  }
+}
+
+// Styles for Synthesis Mode
+.synthesis-mode {
+  .note-item {
+    transition: background-color 0.2s ease-in-out;
+    // Indicate selection possibility on hover
+    &:hover {
+      background-color: rgba(var(--ion-color-primary-rgb), 0.05);
+    }
+
+    &.selected {
+      --background: rgba(var(--ion-color-primary-rgb), 0.1);
+      box-shadow: 0 0 0 2px var(--ion-color-primary-tint) inset;
+    }
+  }
+
+  ion-checkbox {
+    margin-right: 16px;
+  }
+}
+
+// Style for the synthesis button in the footer
+.synthesize-button {
+  margin: 8px;
+  --background: var(--violet-gradient);
+}
