@@ -62,33 +62,8 @@ const safetySettings = [
 
 // --- Middleware ---
 
-// Explicit CORS Configuration
-const allowedOrigins = [
-    'capacitor://localhost', 
-    'ionic://localhost', 
-    'http://localhost', 
-    'http://localhost:8100' // Default Ionic serve port
-    // Add any other origins if needed (e.g., custom dev server port)
-];
-
-const corsOptions: cors.CorsOptions = {
-    origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps or curl) or from allowed origins
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            console.warn(`CORS: Blocked origin: ${origin}`); // Log blocked origins
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
-};
-
-app.use(cors(corsOptions)); // Use specific CORS options
-
-// Fallback for preflight requests (OPTIONS method)
-app.options('*', cors(corsOptions));
+// Revert to simple CORS configuration for testing deployment
+app.use(cors()); 
 
 app.use(express.json()); // Parse JSON request bodies (should be after CORS)
 
